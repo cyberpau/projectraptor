@@ -20,49 +20,4 @@ public class ProjectraptorApplication {
 		SpringApplication.run(ProjectraptorApplication.class, args);
 	}
 
-	@RestController
-	@RequestMapping("/projects")
-	public class ProjectController {
-		@Autowired
-		private ProjectRepository projectRepository;
-
-		public ProjectController(ProjectRepository projectRepository) {
-			this.projectRepository = projectRepository;
-		}
-
-		@GetMapping
-		public Iterable<Project> getProjects() {
-			return projectRepository.findAll();
-		}
-	}
-
-	@RestController
-	@RequestMapping("/users")
-	public class UserAccountController {
-		@Autowired
-		private UserAccountRepository userAccountRepository;
-
-		public UserAccountController(UserAccountRepository userAccountRepository) {
-			this.userAccountRepository = userAccountRepository;
-		}
-
-		@GetMapping
-		public  Iterable<UserAccount> getUserAccounts() { return userAccountRepository.findAll(); }
-	}
-
-	@RestController
-	@RequestMapping("/assignments")
-	public class ProjectAssignmentController {
-		@Autowired
-		private ProjectAssignmentRepository projectAssignmentRepository;
-
-		public ProjectAssignmentController(ProjectAssignmentRepository projectAssignmentRepository) {
-			this.projectAssignmentRepository = projectAssignmentRepository;
-		}
-
-		@GetMapping
-		public Iterable<ProjectAssignment> getProjectAssignments() {
-			return projectAssignmentRepository.findAll();
-		}
-	}
 }
