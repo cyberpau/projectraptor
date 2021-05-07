@@ -1,6 +1,6 @@
 package com.cyberpau.projectraptor.service;
 
-import com.cyberpau.projectraptor.exception.UserNotFoundException;
+import com.cyberpau.projectraptor.exception.ProjectNotFoundException;
 import com.cyberpau.projectraptor.model.Project;
 import com.cyberpau.projectraptor.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class ProjectService {
 
     public Project findProjectById(Long id) {
         return projectRepository.findProjectById(id).orElseThrow(
-                () -> new UserNotFoundException("User by id " + id + " was not found."));
+                () -> new ProjectNotFoundException("Project by id " + id + " was not found."));
     }
 
     public Project updateProject(Project project) {
